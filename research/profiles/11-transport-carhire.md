@@ -23,6 +23,14 @@
 - SUV：Standard SUV 约 **AUD 94/天**起（[VroomVroomVroom 2026-08](https://www.vroomvroomvroom.com.au/locations/cairns-airport/)）；低配 Compact SUV 促销价可见 AUD 29–45/天。
 - **9/19 后进入春假价格会再上浮；9 天租期尽早锁价、选可免费取消的订单**。精确到日的 2026-09-17 报价未查到，以上为区间画像。
 
+**SUV 性价比排序（2026-09 补查，VroomVroomVroom/Discovercars/Kayak 报价）**：
+1. **Europcar** Intermediate SUV $64/天起（口碑 4.8、航站楼内、大牌合同可去 Cape Trib）——大牌首选
+2. **Bargain Car Rentals** Compact SUV $55/天起（全场均价最低；场外 shuttle 柜台，**订前邮件确认允许去 Cape Trib + 认中国驾照翻译件**）
+3. **East Coast** Fullsize SUV $85/天（本地老牌 4.6，全尺寸这个价大牌要 $120+；同样先确认条款）
+4. SIXT/Budget（双双 4.8 全场最高分，SUV 未列价，拿日期询价）
+- **避开**：Everything Fleet（有用户反馈不允许去 Cape Trib，与本行程冲突）；Hertz 的 SUV 当前 $337/天离谱（其价值只剩中国驾照官方通道，没翻译件才考虑且选轿车）
+- 9 天全包测算：Europcar SUV $576 + 第三方 excess 保险约 $90 ≈ **A$670 全险落地**
+
 **Premium Location Fee（机场附加费）**：Avis 官方说明这是按**租金总额（含加购项）的百分比**收的机场经营权费，范围 **3%–29%**（2026–27 版条款写到「up to 40%」）；整个租期都按此计。Cairns Airport 的确切百分比未查到（通常已含在报价里，下单前看明细行 "Premium Location Surcharge"）。来源：[Avis Australia T&C 2026-27 PDF](https://agent.bkbholidays.com/wp-content/uploads/2017/08/Y1-Avis-Australia-Terms-and-Conditions-2026-27-CLIENT-VERSION.pdf)。
 
 ## 三、保险与免赔额
