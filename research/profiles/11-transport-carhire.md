@@ -33,6 +33,16 @@
 - **挡风玻璃/轮胎/单车事故**：租车合同的标准保障**通常把 windscreen、tyres、车顶、底盘排除在外**；单车事故有些公司不能降到零免赔。第三方 excess 保险大多**明确覆盖**这些——这是买第三方的最大理由，买前逐条核对 PDS。来源：[Alpha Car Hire 免责解析](https://alphacarhire.com.au/blog/car-hire-excess-liabilities-exclusions/)。
 - 提醒：**违反合同的驾驶（如开上 Bloomfield Track）出事，柜台和第三方都不赔。**
 
+### 「零免赔 + 含玻璃轮胎」实价（9 天租期测算，2026-09 补查）
+
+| 路径 | 价格 | 玻璃/轮胎 | 说明 |
+|---|---|---|---|
+| 柜台顶配套餐 | Avis/Budget $74/天、Europcar $72/天、Thrifty $46/天、Hertz $46/天 → 9 天 **A$414–666** | **大多不含**，要再买各家 windscreen/tyre add-on（单价未逐家核到）；Hertz 顶配还剩 $1,500 免赔 | Choice 以悉尼机场周租实测，凯恩斯同量级 |
+| 第三方 excess 保险 | Car Hire Excess 约 $10/天（明示含 windscreen/tyres/underbody）、RentalCover 约 $18/天、Tripcover 从 $5.61/天（15 天+价） → 9 天 **约 A$72–160** | **含** | 先全额赔给租车公司再报销；押金照冻 |
+| 国际渠道 inclusive 零免赔 | 随渠道打包，Avis 海外版 [Zero Excess](https://one.avisworld.com/en_GB/AvisHongKong/Zeroexcess) 白纸黑字零免赔**含 windscreen 和 tyres** | 含（认准条款 "zero excess including windscreen & tyres" 字样） | 租租车「超级全险」类同属此路，逐单看条款 |
+
+**结论**：最省 = 基础租车 + 第三方保险（全险成本约 A$90–160/9 天）；不想垫付理赔就走国际渠道 inclusive 套餐。来源：[Choice](https://www.choice.com.au/travel/on-holidays/car-hire/articles/car-hire-excess-and-hidden-fees)。
+
 ## 四、合同红线
 
 - **Daintree 渡轮以北到 Cape Tribulation：普通 2WD 租车基本都允许**。Cape Tribulation 公路 2002 年起全程铺装；Hertz 条款明确 Daintree River Ferry 不在禁行之列；多方核对 Thrifty、Hertz、Avis、Budget 均允许。**例外**：个别本地廉价公司（如 Everything Fleet）有用户反馈不允许去 Cape Trib——**便宜的本地公司要逐条看合同**。来源：[Hertz AU 条款 PDF](https://images.hertz.com/pdfs/RT_FULL_AU_EN.pdf)、[Tripadvisor 讨论](https://www.tripadvisor.com/ShowTopic-g499650-i9772-k14492934-Help_No_rental_cars_on_the_Ferry-Daintree_Daintree_Region_Queensland.html)。
