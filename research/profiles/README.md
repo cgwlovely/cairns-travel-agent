@@ -17,6 +17,7 @@
 | 9 | [09-weather-safety.md](09-weather-safety.md) | 9/17–9/26 行程窗口的天气预判 + 历史事故档案 | BOM 多站气候统计、逐活动可行性表、确证事故记录与「三件反复杀人的事」、应急信息 |
 | 10 | [10-must-eat.md](10-must-eat.md) | 跨区必吃清单 + 本地人吃法 | 六家值得专程、$ 档记忆点、高原产地半日、俱乐部会员/午市/First Table/BYO 省钱法 |
 | 11 | [11-transport-carhire.md](11-transport-carhire.md) | 交通与租车 | 中国驾照昆州口径（NAATI 翻译件/Hertz 通道）、免赔额与第三方保险、合同禁行红线、加油停车、不租车替代、事故流程 |
+| 12 | [12-hotel-booking-shortlist.md](12-hotel-booking-shortlist.md) | 订房清单 | 行程四段住宿的首选/备选/升级/省钱四档 + 参考价 + 预订渠道 + 总账预估 |
 
 ## 全区通用要点（跨篇区共识）
 
