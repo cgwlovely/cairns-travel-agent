@@ -3,97 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>NSW 2026｜内陆下海岸回</title>
+  <title>NSW 2026｜海岸南下 · 内陆返回（已核验）</title>
   <style>
-    :root{--ink:#26303b;--muted:#64717b;--sea:#2f6f8f;--sun:#e0a52e;--coral:#c96f4a;--cream:#faf7f0;--card:#fff;--line:#dde5e9}
+    :root{--ink:#26303b;--muted:#64717b;--sea:#2f6f8f;--sun:#e0a52e;--coral:#c96f4a;--red:#c0392b;--green:#2e7d5b;--cream:#faf7f0;--card:#fff;--line:#dde5e9}
     *{box-sizing:border-box} body{margin:0;background:#eef2f5;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.55}
-    a{color:#1d6a8c;text-decoration:none;border-bottom:1px dotted #1d6a8c}.page{max-width:1120px;margin:auto;background:var(--cream);box-shadow:0 8px 40px #31455b22}
-    .hero{min-height:340px;padding:56px 7%;display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;background:linear-gradient(125deg,#e3eef2,#f7ecd6)}
-    .eyebrow{font-weight:800;color:var(--coral);letter-spacing:.08em}.hero h1{font-size:clamp(36px,6vw,68px);line-height:1.05;margin:12px 0}.hero p{font-size:18px;max-width:650px}
-    .mascot{background:#ffffffdc;border:2px solid white;border-radius:28px;padding:24px;text-align:center;font-size:56px}.mascot small{display:block;font-size:15px;color:var(--muted)}
-    main{padding:42px 6% 70px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-60px;position:relative}.stat{background:#fff;border-radius:18px;padding:18px;box-shadow:0 5px 20px #31455b18}.stat b{display:block;font-size:24px;color:var(--sea)}
-    h2{font-size:29px;margin:48px 0 18px}.route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;padding:18px;border-radius:18px}.stop{padding:8px 12px;background:#e6eef5;border-radius:999px;font-weight:700}.arrow{color:var(--coral)}
-    .notice{margin:18px 0;padding:16px 18px;border-left:5px solid var(--sun);background:#faf0d8;border-radius:10px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.day{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 5px 18px #31455b10}.day-body{padding:20px}.date{color:var(--coral);font-weight:800}.day h3{margin:4px 0 11px;font-size:21px}.timeline{margin:0;padding-left:20px}.timeline li{margin:7px 0}.tag{display:inline-block;margin:9px 5px 0 0;padding:4px 9px;border-radius:9px;background:#e6eef5;font-size:13px}.cost{float:right;color:#1d6a8c;font-weight:800}
-    table{border-collapse:collapse;width:100%;background:white;border-radius:18px;overflow:hidden}th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#e3eef2}.book{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.book article{background:white;border-radius:16px;padding:17px;border-top:5px solid var(--sea)}.book article:nth-child(2){border-color:var(--sun)}.book article:nth-child(3){border-color:var(--coral)}
-    footer{text-align:center;background:#26303b;color:#e3eef2;padding:28px}.fine{font-size:13px;color:var(--muted)}
-    @media(max-width:760px){.hero{grid-template-columns:1fr;padding-bottom:80px}.stats,.grid,.book{grid-template-columns:1fr}.stats{margin-top:-45px}.mascot{display:none}table{font-size:13px}}
+    a{color:#1d6a8c;text-decoration:none;border-bottom:1px dotted #1d6a8c}.page{max-width:1180px;margin:auto;background:var(--cream);box-shadow:0 8px 40px #31455b22}
+    .hero{min-height:300px;padding:52px 6%;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;background:linear-gradient(125deg,#e3eef2,#f7ecd6)}
+    .eyebrow{font-weight:800;color:var(--coral);letter-spacing:.08em}.hero h1{font-size:clamp(34px,5.5vw,62px);line-height:1.05;margin:12px 0}.hero p{font-size:17px;max-width:660px}
+    .mascot{background:#ffffffdc;border:2px solid white;border-radius:28px;padding:22px;text-align:center;font-size:52px}.mascot small{display:block;font-size:14px;color:var(--muted)}
+    main{padding:38px 5% 64px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-56px;position:relative}.stat{background:#fff;border-radius:18px;padding:16px;box-shadow:0 5px 20px #31455b18}.stat b{display:block;font-size:22px;color:var(--sea)}
+    h2{font-size:27px;margin:44px 0 16px}h3.sub{font-size:19px;margin:26px 0 10px;color:var(--sea)}
+    .route{display:flex;flex-wrap:wrap;gap:7px;align-items:center;background:#fff;padding:16px;border-radius:18px}.stop{padding:7px 11px;background:#e6eef5;border-radius:999px;font-weight:700;font-size:14px}.arrow{color:var(--coral)}
+    .notice{margin:16px 0;padding:15px 17px;border-left:5px solid var(--sun);background:#faf0d8;border-radius:10px}
+    .fix{margin:16px 0;padding:15px 17px;border-left:5px solid var(--red);background:#fdeceb;border-radius:10px}
+    .good{margin:16px 0;padding:15px 17px;border-left:5px solid var(--green);background:#e8f5ef;border-radius:10px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .day{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 5px 18px #31455b10}.day-body{padding:18px}.date{color:var(--coral);font-weight:800;font-size:14px}.day h3{margin:4px 0 10px;font-size:20px}
+    .timeline{margin:0;padding-left:18px}.timeline li{margin:6px 0;font-size:14.5px}
+    .tag{display:inline-block;margin:8px 5px 0 0;padding:3px 9px;border-radius:9px;background:#e6eef5;font-size:12.5px}
+    .tag.warn{background:#fdeceb;color:var(--red);font-weight:700}.tag.new{background:#e8f5ef;color:var(--green);font-weight:700}
+    .cost{float:right;color:#1d6a8c;font-weight:800;font-size:14px}
+    table{border-collapse:collapse;width:100%;background:white;border-radius:16px;overflow:hidden;font-size:14px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#e3eef2}
+    .r{color:var(--red);font-weight:700}.g{color:var(--green);font-weight:700}
+    footer{text-align:center;background:#26303b;color:#e3eef2;padding:26px}.fine{font-size:13px;color:var(--muted)}
+    @media(max-width:820px){.hero{grid-template-columns:1fr;padding-bottom:70px}.stats,.grid{grid-template-columns:1fr}.stats{margin-top:-44px}.mascot{display:none}table{font-size:12.5px}}
     @media print{body{background:white}.page{box-shadow:none}.day{break-inside:avoid}a{color:inherit;border:0}}
   </style>
 </head>
 <body><div class="page">
   <header class="hero">
-    <div><div class="eyebrow">熊仔 × 鸡仔 · 内陆下、海岸回</div><h1>NSW 环线<br>花岗岩到海湾</h1><p>2026.09.19—09.26 · 8 天 7 晚，Brisbane 出发的双人自驾环线：New England 高原 → 峡谷瀑布 → 酒庄 → 海湾沙丘 → 湖区野海岸 → 海滩。每天换宿、多数纯驾驶 1–3 小时，绕开悉尼市区。开自己的车。</p></div>
-    <div class="mascot">🐻 🚗 🐥<small>换一天换一片风景，成本和纯海岸线差不多，景观翻倍。</small></div>
+    <div><div class="eyebrow">熊仔 × 鸡仔 · review driven · 已核验版</div><h1>NSW 环线<br>海岸南下 · 内陆返回</h1><p>2026.09.17—09.25 · 9 天 8 晚，Brisbane 出发双人自驾（自己的车）。前五天沿海岸南下把高分密度最高的一段走完，Hunter 转内陆北回，收尾 The Pyramid + Harbour Town。<b>本页是对 9/5 版行程的核验结果</b>：八路段按评分口径重扫、按真实日期重查库存，红色即为必须改的地方。</p></div>
+    <div class="mascot">🐻 🚗 🐥<small>评分驱动：Google ≥4.7 且 ≥200 条才算达标，平台分开不混用。</small></div>
   </header>
   <main>
-    <section class="stats"><div class="stat"><b>8天 7晚</b>逐日换宿</div><div class="stat"><b>2人</b>自驾慢游</div><div class="stat"><b>~A$2,500</b>双人工作预算</div><div class="stat"><b>约 1,650 km</b>环线全程</div></section>
+    <section class="stats"><div class="stat"><b>9天 8晚</b>17–25 Sep</div><div class="stat"><b>3 处</b>会吃闭门羹已修正</div><div class="stat"><b>2 晚</b>库存告急要今天订</div><div class="stat"><b>8 路段</b>评分扫查画像</div></section>
 
     <h2>一眼看懂路线</h2>
-    <div class="route"><span class="stop">Brisbane</span><span class="arrow">→</span><span class="stop">Armidale</span><span class="arrow">→</span><span class="stop">Hunter Valley</span><span class="arrow">→</span><span class="stop">Nelson Bay</span><span class="arrow">→</span><span class="stop">Forster</span><span class="arrow">→</span><span class="stop">Port Macquarie</span><span class="arrow">→</span><span class="stop">Coffs Harbour</span><span class="arrow">→</span><span class="stop">Yamba</span><span class="arrow">→</span><span class="stop">Gold Coast 购物</span><span class="arrow">→</span><span class="stop">Brisbane</span></div>
-    <div class="notice"><b>四个不可砍的核心（除非天气逼迫）：</b>Wollomombi Falls 内陆峡谷 · Tomaree Head 全程最佳观景 · Myall Lakes + Seal Rocks 海岸绕线 · South West Rocks / Smoky Cape 回程绕行。<br><b>缩减说明（v3）：</b>由 10 天缩至 8 天，砍掉 Granite Belt（Girraween/Bald Rock）头两站——砍头而非砍中间，是为保住「Hunter 周日谷价+周一酒庄」的星期逻辑与全部已核证房价；花岗岩两园留给下次周末短途（Brisbane 出发 2 天即可单独成行）。</div>
+    <div class="route"><span class="stop">Brisbane</span><span class="arrow">→</span><span class="stop">Yamba</span><span class="arrow">→</span><span class="stop">Sawtell/Bellingen</span><span class="arrow">→</span><span class="stop">Dorrigo</span><span class="arrow">→</span><span class="stop">Port Macquarie</span><span class="arrow">→</span><span class="stop">Forster</span><span class="arrow">→</span><span class="stop">Nelson Bay</span><span class="arrow">→</span><span class="stop">Hunter Valley</span><span class="arrow">→</span><span class="stop">Tenterfield</span><span class="arrow">→</span><span class="stop">Girraween</span><span class="arrow">→</span><span class="stop">Gold Coast</span><span class="arrow">→</span><span class="stop">Brisbane</span></div>
 
-    <h2>每日行动卡</h2>
+    <div class="fix"><b>🔴 三处会当场出问题（必须改）：</b>
+      <b>① D7 周三晚餐 Stonefruit 周三不营业</b>——官网确认周三 Closed、周四至周六才做晚市；原行程自己也写着「周四到六」却排在周三。改 The Commercial Boutique Hotel（TA 4.3/312）或 The Royal Hotel（Google 4.6/235）。<br>
+      <b>② D5 周一晚餐选错标的</b>——原选 Sirena Seaside 只有 OpenTable 4.5/<b>37 条</b>，按你自己的门槛远不达标。改 <b>Atmos</b>（Shoal Bay Country Club 内，<b>Google 4.7/2,034</b>），已核实<b>周一至周四 17:00–23:00 营业</b>。<br>
+      <b>③ D4 考拉医院要认准地址</b>——<b>Lord Street 原址已于 2026-09-07 重开</b>（每日 8:30–16:00，154 Lord St）；大修期接待游客的 Guulabaa 是另一处繁育中心、在高速口、往返多 40 分钟。导航别设错。
+    </div>
+
+    <div class="notice"><b>⚠ 两晚库存告急，今天就该订：</b><b>Yamba 9/17 已订完 95%</b>（全镇 18 家，The Carmel 8.8/1,063 A$179 只剩 1 间）；<b>Bellingen 9/18 已订完 89%、全镇仅 4 家</b>且没有符合「独立卫浴 + 免费停车」硬规则的合理价位——<b>建议改住 Coffs Harbour</b>（56 家可订，Quality Hotel 8.5/1,268 A$170），D3 由 Coffs 上 Dorrigo 只多约 15 分钟。</div>
+
+    <div class="good"><b>✅ 这套日期最大的红利：</b>NSW 春假 <b>9/28 才开始</b>——整个 NSW 海岸段（17–23 Sep）完全避开本地人潮，住宿在低位、景点清净。QLD 春假 9/19 起，只影响最后两天的 Gold Coast 与 Harbour Town。</div>
+
+    <h2>每日行动卡（含核验修正）</h2>
     <section class="grid">
-      <article class="day"><div class="day-body"><span class="cost">纯驾驶 ~4h45</span><div class="date">DAY 1 · 9/19 周六</div><h3>Brisbane → Glen Innes → Armidale</h3><ul class="timeline"><li><b>上午 9 点后出发</b>（避高原晨霜），Cunningham Hwy 接 New England Hwy 南下。</li><li><b>午后</b> Glen Innes 停 Australian Standing Stones 舒展腿脚。</li><li><b>傍晚前</b> 抵 Armidale（海拔 ~1,000 m）逛大学城；晚餐亚洲菜压预算（Luniva momo 4.7 / 越南菜）。</li></ul><span class="tag">全程最长驾驶日</span><span class="tag">高原夜冷 备羽绒</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">直达 ~4h · 全天 6–7h</span><div class="date">DAY 2 · 9/20 周日</div><h3>Armidale → Wollomombi Falls → Hunter Valley</h3><ul class="timeline"><li><b>上午</b> Oxley Wild Rivers NP / Wollomombi Falls 内陆峡谷。</li><li><b>全天</b> 全程最长驾驶日，穿 New England 乡村南下。</li><li><b>傍晚</b> 抵 Pokolbin 入住；晚餐从简（酒区周日晚选择少）。</li></ul><span class="tag">最长驾驶日</span><span class="tag">中途多休</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">纯驾驶 ~1h20</span><div class="date">DAY 3 · 9/21 周一</div><h3>Hunter Valley → Nelson Bay</h3><ul class="timeline"><li><b>上午</b> 2–3 个酒庄/奶酪/巧克力停靠（司机不喝或极少量——NSW 红线 0.05）。</li><li><b>午后</b> 短驾去 Port Stephens。</li><li><b>傍晚</b> Tomaree Head 登顶看海湾全景；水边 fish & chips。</li></ul><span class="tag">全程最佳观景点</span><span class="tag">NSW 春假 9/28 才开始 全程避峰</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">直达 ~2h · 含绕行 3–3.5h</span><div class="date">DAY 4 · 9/22 周二</div><h3>Nelson Bay → Myall Lakes → Seal Rocks → Forster</h3><ul class="timeline"><li><b>上午</b> 海豚船或 Stockton 沙丘滑沙（二选一）。</li><li><b>午后</b> 湖区绕线：Myall Lakes、Seal Rocks、Sugarloaf Point Lighthouse。</li><li><b>傍晚</b> Forster 入住；Wallis Lake 海鲜/生蚝晚餐。</li></ul><span class="tag">最佳海岸绕线</span><span class="tag">别只走高速</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">纯驾驶 ~1h30</span><div class="date">DAY 5 · 9/23 周三</div><h3>Forster → Port Macquarie</h3><ul class="timeline"><li><b>上午</b> Wallis Lake，可选皮划艇/SUP。</li><li><b>午后</b> 短驾北上；Tacking Point Lighthouse / Coastal Walk。</li><li><b>晚餐</b> pub specials（周三特价夜）。</li></ul><span class="tag">轻松日</span><span class="tag">考拉医院之城</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">直达 ~2h · 经 SW Rocks 3–3.5h</span><div class="date">DAY 6 · 9/24 周四</div><h3>Port Macquarie → South West Rocks → Coffs Harbour</h3><ul class="timeline"><li><b>上午</b> 绕行 South West Rocks：Trial Bay Gaol、Smoky Cape Lighthouse。</li><li><b>午后</b> 抵 Coffs；Muttonbird Island 步道。</li><li><b>晚餐</b> Jetty 区 burger/pub/海滩晚餐。</li></ul><span class="tag">回程最值绕行</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">纯驾驶 ~1h30</span><div class="date">DAY 7 · 9/25 周五</div><h3>Coffs Harbour → Yamba（宿）</h3><ul class="timeline"><li><b>上午</b> 从容出发，北上约 1.5 小时。</li><li><b>午后</b> Yamba's Fisho 海鲜午餐、灯塔/Pilot Hill、Angourie 蓝绿池；傍晚小镇酒吧看日落。</li><li><b>为什么宿这不宿 Gold Coast</b>：9/25 春假周五 GC 全线爆价（Broadbeach $390+、94% 订完），Yamba 当晚 $179–200 且是「澳洲最佳小镇」候选——省 $200 还多玩半天。</li></ul><span class="tag">最轻松一天</span><span class="tag">Yamba 只剩几间 先锁</span></div></article>
-      <article class="day"><div class="day-body"><span class="cost">合计 ~3h</span><div class="date">DAY 8 · 9/26 周六</div><h3>Yamba → Gold Coast 购物 → Brisbane</h3><ul class="timeline"><li><b>上午</b> 约 2 小时到 Broadbeach，<b>Pacific Fair 购物</b>（GC 最大，400+ 店，周六约 9:00–17:30）。</li><li><b>可选</b> 北上顺路 Harbour Town Premium Outlets（奥莱折扣，顺路 Brisbane 方向）。</li><li><b>下午</b> 约 1 小时回 Brisbane 到家；春假周六 M1 布里斯班段照旧偏慢，17 点前上路。</li></ul><span class="tag">购物日</span><span class="tag">回程只剩 1 小时</span></div></article>
+      <article class="day"><div class="day-body"><span class="cost">≈3h10</span><div class="date">DAY 1 · 9/17 周四</div><h3>Brisbane → Yamba</h3><ul class="timeline">
+        <li><b>07:30</b> 出发，路上一次咖啡休息。</li>
+        <li><b>11:30</b> Yamba 午餐 BeachWood Cafe（Google 4.6/548——注：Yamba 没有任何餐厅同时满足 4.7+ 与 200+，此为最优近似）。</li>
+        <li><b>13:00</b> Angourie 海岸；Blue Pool（Google 4.6/482，免费，有蓝绿藻警示牌时勿下水）。</li>
+        <li><b>18:00</b> 晚餐 Karrikin（约 4.8/199，差 1 条到门槛）或 Sweet and Spicy（Google 4.8/173，小店必订位）。</li></ul>
+        <span class="tag warn">住宿 95% 售罄 今天订</span><span class="tag">Yamba Kayak 已核实营业中</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">≈2h + 35m</span><div class="date">DAY 2 · 9/18 周五</div><h3>Yamba → Sawtell →（改宿 Coffs）</h3><ul class="timeline">
+        <li><b>10:00</b> C-Change Adventures 划船（双人 kayak A$30/h、SUP A$25/h）。</li>
+        <li><b>12:00</b> Sawtell 午餐 <b>改 Split Cafe &amp; Espresso Bar</b>（Google 4.7/606，每日 6:00–16:00）——原选 Cafe TREEO 是 TA 4.6/484，按门槛不达标。</li>
+        <li><b>13:30</b> 备选 Figtree Dayspa（Google 4.9/258，需预约）。</li>
+        <li><b>16:00</b> 入住 Coffs（Bellingen 无合规库存）；晚餐可回 Bellingen 的 Qudo（只做周二–六晚市）或 Coffs Jetty 一带。</li></ul>
+        <span class="tag new">Split Cafe 4.7/606 达标</span><span class="tag warn">住宿改 Coffs</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">40m + ≈2.5–3h</span><div class="date">DAY 3 · 9/19 周六</div><h3>Coffs → Dorrigo → Port Macquarie</h3><ul class="timeline">
+        <li><b>08:30</b> Dorrigo 早餐 Components Cafe（TA 4.9/130）。</li>
+        <li><b>09:30</b> Rainforest Centre + Skywalk。<b>⚠ Lyrebird Link 入口坡道关闭至 2028-06</b>，进 Wonga walk/Crystal Shower Falls 要走 18 度陡坡绕行；Skywalk 处于 Arc 工程拆除倒计时，<b>出行前一周打 02 6657 5913 确认</b>。</li>
+        <li><b>12:15</b> Dangar Falls（Google 4.7/1,692）。</li>
+        <li><b>14:00</b> 南下。<b>新增：Urunga Boardwalk</b>（Google 4.7/1,884，下高速 +10 分钟，1 km 河口栈道到海口、免费、几乎全程无障碍）——本段性价比最高的增量点。</li>
+        <li><b>19:00</b> Port Mac 晚餐 The Stunned Mullet（TA 4.7/1,784，套餐 A$110/人）或 Bills Fishhouse（TA 4.6/1,428）。</li></ul>
+        <span class="tag new">加 Urunga Boardwalk</span><span class="tag warn">Dorrigo 出发前电话确认</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">≈1h30</span><div class="date">DAY 4 · 9/20 周日</div><h3>Port Macquarie → Forster</h3><ul class="timeline">
+        <li><b>07:30</b> 早餐 Sandbox（Google 4.7/1,109）。</li>
+        <li><b>08:30</b> <b>Koala Hospital — 导航设 154 Lord St</b>（原址 9/7 重开，8:30–16:00）；不赶路的话 15:00 场的免费 Feed, Walk &amp; Talk 讲解最全。</li>
+        <li><b>10:30</b> Tacking Point Lighthouse（Google 4.7/1,890）——9 月观鲸季，NSW 岸上观鲸记录最高点位之一。</li>
+        <li><b>16:30</b> Forster 湖边日落；晚餐 <b>改 The Dragon's Den（Google 4.8/491）或 Mezza（4.7/495）</b>——原选 Spice Monkey 为 TA 4.5/826，Google 口径未达门槛。</li></ul>
+        <span class="tag warn">导航别去 Guulabaa</span><span class="tag new">晚餐换达标店</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">≈2–3h 分段</span><div class="date">DAY 5 · 9/21 周一</div><h3>Forster → Seal Rocks → Nelson Bay</h3><ul class="timeline">
+        <li><b>09:00</b> Seal Rocks：<b>点名 Sugarloaf Point Lighthouse</b>（Google 4.8/958，本段风景锚点，岔路往返 +30 分钟）。</li>
+        <li><b>11:00</b> Myall Lakes 短停。<b>走 The Lakes Way 主路不需要渡轮</b>；只有穿 Mungo Brush 湖中线才要过 Bombah Point 渡轮（8:00–18:00、只收现金 $6.50、大风停航）。</li>
+        <li><b>14:30</b> <b>Tomaree Head Summit</b>（Google 4.9/1,512）——NPWS 官方 <b>Grade 5</b>、2.2 km 往返约 400 级台阶，留足 1.5–2 小时。</li>
+        <li><b>18:30</b> 晚餐 <b>改 Atmos</b>（Google 4.7/2,034，周一 17:00–23:00 开）。</li></ul>
+        <span class="tag warn">Grade 5 不是轻量 lookout</span><span class="tag new">晚餐改 Atmos</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">≈1h20</span><div class="date">DAY 6 · 9/22 周二</div><h3>Nelson Bay → Hunter Valley</h3><ul class="timeline">
+        <li><b>08:00</b> 早餐可用 Atmos（Google 4.7/2,034，也做早午餐）。</li>
+        <li><b>10:30</b> Moonshadow Dolphin Discovery（A$46/人，1.5h，全年 10:30/13:30）。</li>
+        <li><b>15:00–17:00</b> First Creek（A$10/20/40 三档）+ Pepper Tree（A$15/30/50），或换 Spa Anise。<b>NSW 血酒精 0.05，定一个不喝的司机。</b></li>
+        <li><b>19:00</b> 晚餐 Muse（TA 4.7/1,434，周二 18:00–20:30）。<b>说明：Muse 的 Google 口径只有 4.6/763、未达门槛，选它是因为周二 EXP.（Google 4.8/802）和 Hunters Quarter 不做晚餐。</b>省钱版 Harrigan's 周二 Schnitty A$20。</li></ul>
+        <span class="tag">口径已标注</span><span class="tag warn">品酒日定司机</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">≈6h 拆段</span><div class="date">DAY 7 · 9/23 周三</div><h3>Hunter → Tamworth → Armidale → Tenterfield</h3><ul class="timeline">
+        <li><b>08:45</b> Scone 停 <b>The Cottage</b>（Google 4.7/735，主街上；周四–六才有正餐午市，周三只当咖啡站）。</li>
+        <li><b>10:45</b> Tamworth 早午餐 <b>Camp Grounds Coffee</b>（Google 4.7/262，13:30 前到）+ <b>Oxley Scenic Lookout</b>（Google 4.7/988，+20–25 分钟）。</li>
+        <li><b>13:30</b> Armidale 咖啡加油。</li>
+        <li><b>18:00</b> Tenterfield 晚餐 <b>不能去 Stonefruit（周三关门）</b>——改 The Commercial Boutique Hotel（TA 4.3/312）或 The Royal Hotel（Google 4.6/235）。</li></ul>
+        <span class="tag warn">Stonefruit 周三关门</span><span class="tag new">Tamworth 两个达标点</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">30–45m + ≈3h</span><div class="date">DAY 8 · 9/24 周四</div><h3>Tenterfield → Girraween → Gold Coast</h3><ul class="timeline">
+        <li><b>08:00</b> <b>The Pyramid</b>（AllTrails 4.8/1,170；官方 Grade 4、3.6 km 往返约 2h，末段裸岩陡坡）——<b>湿滑就改 Granite Arch</b>（1.6 km/30 分钟）。出发前 48h 查 QPWS alerts。</li>
+        <li><b>11:00</b> Stanthorpe 早午餐；Ballandean Estate 品鉴 A$10/人可抵购酒（可选）。</li>
+        <li><b>15:15</b> Labrador 入住（库存充足，210+ 家，不用抢）。</li>
+        <li><b>18:00</b> 晚餐 Cav's Steakhouse（聚合 4.3/665）。</li></ul>
+        <span class="tag">QLD 春假期内</span><span class="tag">湿滑改 Granite Arch</span></div></article>
+
+      <article class="day"><div class="day-body"><span class="cost">local + ≈1h</span><div class="date">DAY 9 · 9/25 周五</div><h3>Gold Coast → Harbour Town → Brisbane</h3><ul class="timeline">
+        <li><b>09:00–16:00</b> Harbour Town Premium Outlets（周五 09:00–17:30），分两个购物 block。</li>
+        <li><b>可选</b> 想加个免费高分点：<b>Burleigh Head National Park</b>（Google 4.8/3,939，离 M1 +20–25 分钟，海岬步道+观鲸）。</li>
+        <li><b>16:30</b> 回 Brisbane 约 1 小时；QLD 春假周五下午 M1 会慢。</li></ul>
+        <span class="tag new">可加 Burleigh 4.8/3,939</span><span class="tag">春假车流</span></div></article>
     </section>
 
-    <h2>预算（双人全程）</h2>
-    <table><thead><tr><th>项目</th><th>计划区间</th></tr></thead><tbody>
-      <tr><td>住宿（7 晚，含 Yamba）</td><td>A$950–1,050</td></tr>
-      <tr><td>油费（自己的车）</td><td>A$350–430</td></tr>
-      <tr><td>吃饭/咖啡</td><td>A$550–700</td></tr>
-      <tr><td>活动/酒庄</td><td>A$200–400</td></tr>
-      <tr><td>停车/杂项/备用</td><td>A$150–200</td></tr>
-      <tr><td><b>合计</b></td><td><b>~A$2,300–2,800（工作目标 A$2,500；购物预算另计）</b></td></tr>
+    <h2>住宿：按真实日期实扫（2026-09-05）</h2>
+    <p class="fine">原行程房价快照是按另一套日期做的，17–25 每晚都落在不同日期上，以下为按真实日期重扫的结果（未登录含税双人价，会变）。</p>
+    <table><thead><tr><th>晚</th><th>镇</th><th>库存实况</th><th>实扫最优</th><th>与原行程对照</th></tr></thead><tbody>
+      <tr><td>9/17 四</td><td>Yamba</td><td class="r">95% 已订完（18 家）</td><td>The Carmel 8.8/1,063 <b>A$179（剩 1）</b>；The Stella 8.4/1,791 A$169（剩 2）；Aston 8.6/1,155 A$200</td><td class="r">路线表 A$214.25 与卡片 A$109 打架；A$109 实为 Pacific Hotel 的<b>共用浴室上下铺房</b>，违反行程自己的硬规则</td></tr>
+      <tr><td>9/18 五</td><td>Bellingen<br>→改 Coffs</td><td class="r">Bellingen 89% 订完、仅 4 家</td><td><b>Coffs：</b>Quality Hotel 8.5/1,268 A$170；海滨公寓 8.4/1,068 A$169；Matador 8.0/1,180 A$161</td><td>原行程「无合规库存」属实；Bellingen 仅剩 A$180 上下铺家庭房与 A$254–439 度假屋</td></tr>
+      <tr><td>9/19 六</td><td>Port Macquarie</td><td>84% 已订完（40 家）</td><td><b>Surf Beach Motel 8.6/5,937 A$158（剩 2）</b>——本段样本量最大</td><td class="r">原行程 Comfort Resort 写了 A$229.50 与 A$149 两个价，需重查</td></tr>
+      <tr><td>9/20 日</td><td>Forster</td><td>周日通常最松</td><td>—</td><td>原行程 A$127.50 方向可信</td></tr>
+      <tr><td>9/21 一</td><td>Nelson Bay</td><td>正常</td><td>Peninsula Motel A$128</td><td class="g">✅ 与原行程 A$128.44 吻合</td></tr>
+      <tr><td>9/22 二</td><td>Pokolbin</td><td>未重扫</td><td>参考：周日晚 Harrigan's 曾扫到 A$111</td><td>原行程 A$149.64</td></tr>
+      <tr><td>9/23 三</td><td>Tenterfield</td><td>未重扫（周三小镇通常有房）</td><td>—</td><td>原行程 A$142</td></tr>
+      <tr><td>9/24 四</td><td>Gold Coast</td><td class="g">库存充足（210+ 家）</td><td>—</td><td>原行程 A$160 合理，不必抢</td></tr>
     </tbody></table>
 
-    <h2>九路画像速查（2026-09-04 全面核查）</h2>
-    <p>9 路并行调查的硬结论，全文带来源与置信度见 <a href="https://github.com/cgwlovely/cairns-travel-agent/tree/main/research/nsw-roadtrip">research/nsw-roadtrip</a>：</p>
-    <table><thead><tr><th>段落</th><th>关键结论（核实）</th></tr></thead><tbody>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/01-stanthorpe-granite-belt.md">（已砍·画像保留）Stanthorpe</a></td><td>Girraween <b>免入园费</b>，9 月正值野花季；Pyramid 最后一段裸岩坡湿滑天别上；镇上 O'Mara's 17:45 就坐满、厨房 20:00 关——18:30 前吃上晚饭；周四 Robert Channon 酒庄休。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/02-tenterfield-bald-rock.md">（已砍·画像保留）Tenterfield</a></td><td>Bald Rock 进园 $8/车<b>现金自助投币</b>；推荐 Bungoona 上（5.7km Grade 3）+ Summit 直登线下拼环线；Boonoo Boonoo Falls 同一条路顺路（园内 9km 土路，2WD 可走）；Tenterfield Saddler <b>下午不开门</b>。9 月两州无时差。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/03-glen-innes-armidale.md">D1 Armidale</a></td><td>9 月均低 <b>2.7°C</b>、月均 15 个霜晨——带羽绒不夸张；<b>镇上没有韩餐</b>，平替是尼泊尔 momo（Luniva 4.7）和越南菜；晚餐亚洲菜压预算成立。次日 Wollomombi 绕行共 80km/1.5h，观景台离停车场仅 200m，旱季瀑布按「细流」预期、峡谷才是保底。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/04-hunter-valley.md">D2-3 Hunter Valley</a></td><td>Armidale→Pokolbin <b>走 New England Hwy</b>（Thunderbolts Way 弯多路差不顺路）；<b>周一 10 点确定营业</b>：Tyrrell's/Audrey Wilkinson/Tamburlaine(9点)/De Bortoli/Peterson House 等（⚠ Brokenwood 平日 11 点才开）；品鉴普遍 $10–25、部分可抵购酒；周日晚靠 Harrigan's 等 pub 系餐厅，fine dining 大面积休。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/05-port-stephens.md">D3-4 Nelson Bay</a></td><td><b>裁决：周二上午选海豚船</b>（Moonshadow 10:30 班 $46/人，1.5h，没看到给免费返航券），12 点下船 → Anna Bay <b>Birubi Point 免费停车步行看沙丘</b>，两样全沾 13:00 上路；傍晚 Tomaree Head（2.2km 往返）看日落带头灯下山。2WD 不能上沙，滑沙团约 $28–31。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/06-myall-forster.md">D4 Myall/Forster</a></td><td>Mungo Brush Rd <b>已全线铺装、2WD 零陷沙</b>（NPWS 官方口径）；<b>Bombah 渡轮 8:00–18:00、小车 $6.50 只收现金</b>、大风停航（当天早上打 02 6591 0300 确认，停航改走 Lakes Way）；公园日票 $8/车。Wallis Lake 牡蛎直售：Graham Barclay/渔民合作社。次日划船 Blue Peter $25–30/h。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/07-port-macquarie.md">D5 Port Macquarie</a></td><td>考拉医院<b>免费</b>、每天 15:00 免费导览（⚠ 9/7 刚大修重开，行前核一眼）；Coastal Walk 别走 9km 全程——<b>车直接开到灯塔停车场</b>，20–40 分钟拿到精华+岸上观鲸（NSW 记录最高点位）；周三 pub 特价查证：<b>灯塔旁 Tacking Point Tavern $24 牛排</b>、Settlers Inn $18 肋排。</td></tr>
-      <tr><td><a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/08-swrocks-coffs-yamba.md">D6-8 回程段</a></td><td>Trial Bay Gaol $11（9 月撞年度雕塑展）；Coffs 傍晚 <b>Muttonbird Island 黄昏归巢+观鲸打包</b>，看完步行 5 分钟到 Jetty Strip 晚餐；Big Banana 免费进园当打卡点 20 分钟走人；<b>Yamba 14:00 前上路</b>避 QLD 假期周五返程车流（Gold Coast→Brisbane 段 15 点后变慢）。</td></tr>
+    <h2>评分口径自查（用你自己的规则校）</h2>
+    <p class="fine">门槛 = Google ≥4.7 且评论 ≥200；平台分开记录不混用。原行程多处用 TripAdvisor 分做「首选」，按 Google 口径其实不达标：</p>
+    <table><thead><tr><th>位置</th><th>原行程口径</th><th>扫查发现</th><th>判定</th></tr></thead><tbody>
+      <tr><td>D2 Sawtell 午餐</td><td>Cafe TREEO　TA 4.6/484</td><td><b>Split Cafe　Google 4.7/606</b></td><td class="r">只有 Split 达标 → 换</td></tr>
+      <tr><td>D4 Forster 晚餐</td><td>Spice Monkey　TA 4.5/826</td><td><b>Dragon's Den 4.8/491</b>、Mezza 4.7/495</td><td class="r">两家都达标 → 换</td></tr>
+      <tr><td>D5 Nelson Bay 晚餐</td><td>Sirena　OpenTable 4.5/<b>37</b></td><td><b>Atmos　Google 4.7/2,034</b>（周一开）</td><td class="r">样本差两个数量级 → 换</td></tr>
+      <tr><td>D6 Hunter 晚餐</td><td>Muse　TA 4.7/1,434</td><td>Muse Google 仅 4.6/763；EXP. 4.8/802 周二不做晚餐</td><td class="g">选择正确，但要标明口径</td></tr>
+      <tr><td>D7 Tenterfield 晚餐</td><td>Stonefruit　TA 4.8/23</td><td>Stonefruit Google 4.8/257，<b>但周三关门</b></td><td class="r">评分再高也去不了 → 换</td></tr>
+      <tr><td>D1 Yamba 晚餐</td><td>Karrikin 约 4.8/199</td><td>Sweet and Spicy 4.8/173</td><td>Yamba <b>无任何餐厅达标</b>，如实标注即可</td></tr>
     </tbody></table>
 
-    <h2>订房清单（8 晚，issue 价已逐晚核证）</h2>
-    <p><b>2026-09-04 Booking 实扫更新</b>：三晚亮红灯要立即锁——Tenterfield 9/18（74% 订完只剩 9 家）、Yamba 9/25（Pacific Hotel 剩 1 间）、Hunter 9/20（84% 订完但 Harrigan's 降到 $111 可免费取消，白捡）；Forster 金沙 $129 剩 1 间。其余各晚供给正常、实价与下表吻合。核证结论：7 晚里多数是<b>春假前的淡季平日</b>，issue 的 A$1,000–1,100 总预算方向可信；唯一要早锁的是 <b>Coffs（9/24，QLD 春假中段的标准中停站）</b>。以下为 issue 价 ± 核证区间与首选：</p>
-    <table><thead><tr><th>晚</th><th>镇</th><th>首选（核证）</th><th>参考价</th><th>备注</th></tr></thead><tbody>
-      
-      
-      <tr><td>9/19</td><td>Armidale</td><td>Estelle Kramer Motor Inn（Booking 9.0/416 条）</td><td>~$118–145</td><td>周六但在学期内，价不跳；三家平台价都在 $118–155 区间</td></tr>
-      <tr><td>9/20</td><td>Hunter Valley</td><td>Harrigan's（住宿+pub+晚餐一体）</td><td>~$150</td><td>周日是酒区淡时段谷底；晚到从 pub 吧台取钥匙</td></tr>
-      <tr><td>9/21</td><td>Nelson Bay</td><td>Seabreeze Hotel ~$99–113 / 升级 Marina Resort ~$166+</td><td>~$99–148</td><td>Marina Resort 离次日上船码头最近</td></tr>
-      <tr><td>9/22</td><td>Forster</td><td>Bella Villa Motor Inn ~$91–105</td><td>~$91–128</td><td>周二全周最低价日；湖景升级 Sevan Apartments ~$228</td></tr>
-      <tr><td>9/23</td><td>Port Macquarie</td><td>ibis Styles 或本地 motel</td><td>~$114–134</td><td>淡季中周 3 星均价 ~$130，预算带现实；海景升级 Sails by Rydges 周三最低价日</td></tr>
-      <tr><td>9/24</td><td>Coffs Harbour</td><td><b>Jetty 区</b> motel/公寓（晚餐+观鸟免开车）</td><td>~$128–190</td><td>⚠ QLD 春假中段，<b>别赌 walk-in 尽早锁</b>；ibis Budget $88 起纯睡觉</td></tr>
-      <tr><td>9/25</td><td>Yamba</td><td>Pacific Hotel $179（剩1）/ The Stella $199 / Aston Motel $200（剩4）</td><td>~$179–200</td><td>⚠ 小镇仅 10 家可订源、周五所剩无几——与 Tenterfield 并列最先锁；睡这不睡 Gold Coast（春假周五 GC $390+ 且 94% 订完），省 $200</td></tr>
+    <h2>八路段评分扫查画像</h2>
+    <p>本次按路段并行扫了 lookout / 餐饮 / SPA / 娱乐四类，逐条带评分、平台、绕路分钟、费用、营业要点、通行风险与优先级，全文见
+      <a href="https://github.com/cgwlovely/cairns-travel-agent/tree/main/research/nsw-roadtrip/segments">research/nsw-roadtrip/segments</a>，核验报告见
+      <a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/VERIFY-17-25-review-driven.md">VERIFY-17-25</a>。几个结构性发现：</p>
+    <table><thead><tr><th>发现</th><th>说明</th></tr></thead><tbody>
+      <tr><td><b>SPA 全线几乎无达标点</b></td><td>Stanthorpe/Tenterfield/Armidale 的按摩店评论数是个位数；Port Stephens 一带最好的三家（Sirene 聚合 4.8/71、Kado Fresha 5.0/57、Spa Lucca 无公开分）全部样本不足。唯一达标的是 <b>Coffs 的 Figtree Dayspa 4.9/258</b>——SPA 想按评分选，只有这一个点</td></tr>
+      <tr><td><b>小镇餐饮天花板普遍卡在 4.6</b></td><td>Woolgoolga、Bellingen、Yamba、Harrington、Old Bar 的头部店多为 Google 4.6，差 0.1 分。硬套 4.7 门槛会把整段餐饮清空——这些镇应按「备选表」用，并如实标注未达标</td></tr>
+      <tr><td><b>高分密度集中在三处</b></td><td>① Port Stephens（Tomaree 4.9/1,512、Atmos 4.7/2,034 等 8 个达标点）② South West Rocks 支线（灯塔 4.8/773 + Arakoon 4.7/1,138 + Horseshoe Bay 4.7/314）③ Pokolbin（10 个达标点但全部依赖预约或 17:00 前到）</td></tr>
+      <tr><td><b>两条工单悬案已裁</b></td><td><b>Yamba Kayak：营业中</b>（官网 ©2026、FareHarbor 可订，Google 的「暂时关闭」是过时残留），但 5.0/146 仍不足门槛；<b>Port Jet Cruises：4.7/527</b>（479 为过期快照），达标</td></tr>
     </tbody></table>
 
-    <h2>天气预判与安全预警（9/17–9/25）</h2>
-    <p><b>天气底牌（BOM 八站统计，非逐日预报）：</b>9 月中下旬是走这条线的好窗口——全线雨日仅 4–6 天/月、火季刚起、高温未到。核心是<b>一天跨两季</b>：Armidale 9 月均低 2.7°C（月均 15 个霜晨，历史极端 −6°C），海岸白天 22°C——高原段早晚羽绒、海岸段短袖薄外套，按三层洋葱打包。海水 18–20°C，是「看海+短暂下水」不是「下水度假」的季节。</p>
-    <table><thead><tr><th>风险</th><th>确证记录</th><th>纪律</th></tr></thead><tbody>
-      <tr><td><b>无巡逻海滩的 rip current</b>（本线唯一高致死机制）</td><td>NSW 2024/25 年 31 起海岸溺亡<b>全部</b>发生在无巡逻处/旗区外；Moonee Beach 2018 年一家 6 人被卷 3 死；<b>Port Macquarie Shelly Beach 有连环溺亡史</b>（2019 两背包客 + 此前 3 人 + 2025-08 又 1 人）。NSW 巡逻季随春假 9 月底才开——行程期间多数海滩没有旗。</td><td>没有红黄旗=不下水（或齐膝为限）；Shelly Beach 与 Moonee Beach 不下水；被卷走不逆流硬游，平行海岸游出流带；下水前查 BeachSafe app。</td></tr>
-      <tr><td><b>高原晨昏驾驶</b>（袋鼠+黑冰）</td><td>NRMA 2025 年约 1.5 万起动物碰撞索赔、袋鼠占 84%、Armidale 列 NSW 高发区之一；New England Hwy 2016 年因黑冰封路、2025-08 SES 对 Armidale–Guyra 线明确黑冰警告。</td><td>高原段（D1–D4）9 点后出发、日落前进城；桥面/阴面弯道收油；遇袋鼠刹车<b>不打方向猛避</b>。</td></tr>
-      <tr><td><b>品酒日酒驾</b></td><td>NSW 0.05，低档首犯罚 $581+<b>当场吊照 3 个月</b>；酒区乡道 RBT 是常规操作。</td><td>D5 定一个全天不喝的司机；品鉴用吐酒桶完全正常；次日清晨注意残留。</td></tr>
-      <tr><td>步道</td><td>Tomaree Head 2018 年一名 75 岁登山者心脏骤停（陡台阶心肺负荷，非跌落）；Pyramid/Bald Rock 无确证死亡记录，但管理方明示湿岩不宜攀登。</td><td>湿滑天放弃裸岩登顶改平缓线；Tomaree 量力而行、日落场带头灯。</td></tr>
-      <tr><td>沙丘</td><td>Stockton 本地无确证滑沙/4WD 死亡记录；全澳 quad bike 2001 年来 230+ 死（多为翻覆）。</td><td>滑沙/quad 只跟持牌团；自己的车不上沙（陷车新闻常客+需 permit）。</td></tr>
-      <tr><td>火季</td><td>2026 年 NSW 有 27 个 LGA（含 New England 一带）把火险期<b>提前到 9/1</b>。</td><td>野外不用明火（用公园电烤炉）；每天瞄一眼火险牌，Total Fire Ban 日不点火。</td></tr>
-    </tbody></table>
-    <div class="notice"><b>应急速记：</b>000（手机无卡可拨，备用 112）· 海滩巡逻查 BeachSafe app · 路况 Live Traffic NSW 132 701 / QLDTraffic 13 19 40 · 撞袋鼠打 WIRES 1300 094 737 · 火情 Hazards Near Me app · 本线唯一 major trauma centre 是 Newcastle 的 John Hunter Hospital。<b>出发前 72 小时清单：</b>BOM 逐日预报（重点高原晨温）→ Live Traffic 查山路通行 → BeachSafe 查巡逻开季 → 火险等级。完整档案见 <a href="https://github.com/cgwlovely/cairns-travel-agent/blob/main/research/nsw-roadtrip/09-weather-safety.md">天气与安全画像</a>。</div>
+    <h2>出行前必做</h2>
+    <div class="notice">
+      <b>今天：</b>订 Yamba 9/17（剩个位数房）与 Coffs 9/18（替代 Bellingen）。<br>
+      <b>出行前一周：</b>打 <b>02 6657 5913</b> 确认 Dorrigo Skywalk 还在（Arc 工程拆除倒计时）；确认考拉医院 Lord St 原址开放；订 Hunter 的酒庄/Spa/餐厅（周二 EXP. 不做晚餐）。<br>
+      <b>出行前 48 小时：</b>QPWS 查 Girraween alerts（春季 hazard-reduction 窗口）、NPWS 查 Dorrigo/Myall alerts、BOM 看 The Pyramid 那天会不会下雨（湿岩不上）。<br>
+      <b>常备：</b>Bombah Point 渡轮只收现金；国家公园日票 A$8 部分为自助投币；NSW 血酒精 0.05。
+    </div>
 
-    <p class="fine">依据 <a href="https://github.com/cgwlovely/cairns-travel-agent/issues/1">Issue #1</a> 编排；画像调查进行中，速查板块随装配更新。此前的凯恩斯行程（同日期窗口）已被本方案替换，其资料<a href="index.html">存档于此</a>。</p>
+    <p class="fine">核验于 2026-09-05。评分多为 Wanderlog/Restaurant Guru/Birdeye 对 Google 的镜像快照，可能滞后数周，出行前可在 Google Maps 复核；Booking 实价为未登录快照，会变。凡「未查到」均为实际检索未果，未编造。此前的 19–26 内陆下海岸回版本已由本版取代。</p>
   </main>
-  <footer>🐻 NSW 9 日环线 · 🐥 内陆下、海岸回</footer>
+  <footer>🐻 NSW 9 日环线 · review driven · 已核验 · 🐥 海岸南下、内陆返回</footer>
 </div></body></html>
