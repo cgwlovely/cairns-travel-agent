@@ -138,3 +138,49 @@ Recheck 48–72h before departure:
 - final live hotel prices.
 
 Stable route logic and volatile booking data should remain separate in the agent's reasoning.
+
+---
+
+## 14. Lessons from the 2026-09-05 independent verification pass
+
+Added after an independent re-scan of the 17–25 Sep plan (eight route segments, Google ≥4.7 & ≥200 screen, live Booking re-check on the true dates). Each item below is a rule the original method *had* but did not survive contact with the data, or a rule it was missing.
+
+### 14.1 The §7 worked example violates §2 — fix it
+
+§7 cites "Monday dinner moved to Sirena Seaside" as a success. Sirena has **OpenTable 4.5 / 37 reviews**, which fails the §2 screen (~200+ reviews) by two orders of magnitude. The correct Monday answer on that segment is **Atmos** (Shoal Bay Country Club): **Google 4.7 / 2,034**, verified open Mon–Thu 17:00–23:00.
+
+**Rule:** catching a closure is only half the job. The replacement must clear the same screen the original had to clear — otherwise a hard failure (closed) has been traded for a soft one (unverified).
+
+### 14.2 Re-run the weekday check whenever dates move
+
+§7 step 4 already requires verifying opening hours for the actual weekday, but Stonefruit was still scheduled for a **Wednesday** while the same paragraph noted "Thu–Sat only". Official hours: **Wednesday Closed**.
+
+**Rule:** the weekday-opening check is invalidated by any date shift, and must be re-run as a batch — not spot-checked. Treat "the page already says the right hours somewhere" as *not* checked.
+
+### 14.3 Never mix rating platforms inside one screen
+
+Four "top picks" in the plan were selected on TripAdvisor scores while their Google scores were below the stated gate (Cafe TREEO TA 4.6 vs Split Cafe Google 4.7/606; Spice Monkey TA 4.5 vs Dragon's Den Google 4.8/491; Muse TA 4.7 vs Google 4.6/763; Stonefruit TA 4.8/23 vs Google 4.8/257).
+
+**Rule:** pick one platform as the gate, record every other platform separately, and never let a score from platform B satisfy a threshold defined on platform A. Where platforms disagree sharply (Atmos: Google 4.7/2,034 vs TA 4.0/103), report both — the disagreement is information, not noise.
+
+### 14.4 Regional rating ceiling: a hard 4.7 gate empties whole segments
+
+Across Woolgoolga, Bellingen, Yamba, Harrington, Old Bar and Taree, the best restaurants cap at **Google 4.6**. Applying a hard 4.7 gate returns an empty set and pushes the planner toward tiny-sample 4.8s — exactly the failure in 14.1.
+
+**Rule:** below a certain town size, switch from "threshold" to "local best + explicit label". State plainly that no venue in the town clears the gate rather than promoting an unqualified one. Same finding for spa: across the whole route only one spa clears the gate (Figtree Dayspa, Google 4.9/258).
+
+### 14.5 Inventory scarcity is a gate, not a price line
+
+§8 gates accommodation on privacy and §12 puts live prices last. But on the true dates **Yamba 17 Sep was 95% sold out** (best compliant room: 1 left) and **Bellingen 18 Sep was 89% sold out with zero compliant inventory** — the plan's own hard filter had no legal move in that town.
+
+**Rule:** run the availability scan on the **exact dates** at graph time, not at booking time. Scarcity changes the route (Bellingen → Coffs), and a route decision made after the rooms are gone is not a decision. Also: re-scan whenever the trip dates shift — prices and availability from a different date set are not evidence.
+
+### 14.6 Verify the venue is still where the plan says it is
+
+The Koala Hospital plan pointed at the visitor operation that ran during the rebuild (Guulabaa, +40 min round trip) while the **Lord Street site reopened 2026-09-07**. Similar live-status finds: Dorrigo Skywalk open but inside a demolition countdown (Arc project) with the Lyrebird Link ramp closed to 2028; Yamba Kayak's "temporarily closed" flag stale (it is operating).
+
+**Rule:** for any venue that has recently moved, rebuilt or been flagged closed, confirm the **current address and status from the operator**, not from an aggregator snapshot. Aggregator status flags lag reality in both directions.
+
+### 14.7 Where corrections must land
+
+A correction banner at the top of a page does not protect a reader who navigates to the day card and follows it. Fixes must be written **into the day entry itself**, with the original struck through and the reason attached, so the plan is safe to follow linearly.
