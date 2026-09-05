@@ -184,3 +184,100 @@ The Koala Hospital plan pointed at the visitor operation that ran during the reb
 ### 14.7 Where corrections must land
 
 A correction banner at the top of a page does not protect a reader who navigates to the day card and follows it. Fixes must be written **into the day entry itself**, with the original struck through and the reason attached, so the plan is safe to follow linearly.
+
+---
+
+## 15. Lessons from the 2026-09-05 menu-and-price pass
+
+This pass was not a verification pass. The task was "list signature dishes and drink
+prices". It nonetheless produced **five hard scheduling errors** that two prior
+verification passes had missed. That is the finding worth keeping.
+
+### 15.1 Pricing work finds closures that verification work misses
+
+To get a dish price you must open the operator's own menu page. Opening-hours text
+sits on that same page. So a price scan reads the primary source for **every** venue,
+whereas a hours-check tends to spot-check only venues that look suspicious.
+
+Errors found this way, none of which the two earlier verification passes caught:
+Spa Anise (closed Mon/Tue **and** shuts 17:00, scheduled for 17:00 Tue), Muse
+(scheduled for Tuesday dinner; dinner is Wed–Sat), Dragon's Den (scheduled for
+Sunday; closed Sun/Mon/Tue), Coffs Fishermen's Co-op (scheduled for 19:00; shuts
+17:00), Moonshadow Splash & Slide (scheduled in September; runs Nov–Apr only).
+
+**Rule:** run the price/menu scan **before** declaring the itinerary verified, and
+treat it as the real opening-hours audit. It is cheaper and more complete than a
+dedicated hours pass, because the price requirement forces primary-source contact.
+
+### 15.2 Check the opening day of the venue you chose, not only the ones you rejected
+
+§14.2 requires re-running the weekday check on date shift. It was run — and still
+missed Muse, because the reasoning had been written as:
+
+> "Muse is right for Tuesday **because** EXP. and Hunters Quarter don't do Tuesday
+> dinner — operating-day beats rating."
+
+Both premises were verified. The conclusion was never checked: **Muse does not do
+Tuesday dinner either.** The "operating-day beats rating" trade-off is sound; the
+failure was auditing the losers of the comparison and exempting the winner.
+
+**Rule:** whenever a stop is justified by a rival's closure, that justification makes
+the chosen venue's own opening day **more** load-bearing, not less. Verify the winner
+first, and record the source (operator page, not aggregator) next to it.
+
+### 15.3 A subagent's opening hours are a claim, not a fact
+
+The replacement for Spa Anise was Ubika, chosen partly because the research agent
+reported "Fri/Sat 9:00–20:00" — the only Hunter spa that could serve an evening slot.
+Cross-checking the operator's own site found **Mon–Sat 9:00–17:00, Sun 10:00–16:00**,
+confirmed independently by Google Maps. The agent's figure came from the host resort's
+page, which was stale.
+
+Had it not been re-checked, a 15:40 booking would have been placed against a 17:00
+close — replacing one closure error with an identical new one, inside the very fix
+meant to remove it.
+
+**Rule:** any hours figure that **decides** a scheduling choice must be confirmed
+against the operator's own page before it lands in the plan. Delegated research is
+for breadth; the load-bearing number gets verified by hand.
+
+### 15.4 Report the rating you found, even when it undermines your own recommendation
+
+The same agent reported "Ubika: no aggregate rating found". Live Google Maps shows
+**4.3 / 105** — below both gates. Spa Anise, the venue being replaced, shows **4.6 /
+10**. Neither clears the screen; the original page had ranked Spa Anise as the
+region's best on no data at all.
+
+The honest output is not to quietly promote the 4.3, nor to hide it behind "operating
+day beats rating". It is to state that **Tuesday has no qualifying spa in the Hunter**,
+name the 4.3 as the price of going anyway, and offer dropping the stop as a real
+option.
+
+**Rule:** "not found" from a research agent is a prompt to look yourself, not a
+licence to treat the venue as unrated. A gap in the data is not neutral — it usually
+hides the number that would have changed the recommendation.
+
+### 15.5 Closure has more than two states
+
+Karrikin was reported to us as "closed down", and live Google Maps says
+**permanently closed**. The operator's own site says they are **travelling and return
+March 2027**, and that friends are running the same room as **Lela's** meanwhile.
+
+For the 17 Sep booking all three framings give the same answer — you cannot eat there.
+They give different *navigation* answers: "permanently closed" implies an empty
+shopfront, when in fact the address is a working restaurant under another name.
+
+**Rule:** record closure as {permanent, hiatus-with-return-date, replaced-in-place,
+relocated}, sourced from the operator where possible (extends §14.6). The distinction
+changes what the traveller finds when they arrive.
+
+### 15.6 Corrections must reach the summary tables too
+
+§14.7 says corrections must land in the day entry, not just a banner. This pass found
+the same failure one level down: after fixing the day cards, the **footer summary
+tables still carried the retracted figures** (The Cottage 4.7/735, BeachWood 4.6/548
+mislabelled as Google, Royal Hotel's unverifiable 4.6/235) and still recommended
+Dragon's Den and Muse on days they are shut.
+
+**Rule:** a correction is complete when a text search for the retracted string returns
+only occurrences inside an explicit "this was wrong" sentence. Grep before shipping.
