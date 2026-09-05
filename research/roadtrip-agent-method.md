@@ -281,3 +281,68 @@ Dragon's Den and Muse on days they are shut.
 
 **Rule:** a correction is complete when a text search for the retracted string returns
 only occurrences inside an explicit "this was wrong" sentence. Grep before shipping.
+
+---
+
+## 16. Lessons from the 2026-09-05 route-shape rewrite
+
+The plan went 9 days → 8 → 7, and inland → coastal → true loop, driven entirely by user
+pushback. Four rules came out of it.
+
+### 16.1 Repetition is a property of the route's shape, not of its stops
+
+The user said "D5/D6/D7 feel repetitive — lighthouses, coastal views." Counting: Yamba
+Lighthouse, Tacking Point, Bennetts Head, Sugarloaf Point, Smoky Cape, Pat Morton,
+Fingal Head. **Seven days, six lighthouses/headlands.** §6 already forbade repeating an
+experience type, and it had been applied stop-by-stop — each one individually cleared
+the rating screen and each was "the best thing in its town."
+
+The cause was structural: the itinerary ran **down a coastal corridor and back up the
+same corridor**. On that shape, every overnight town is a coastal town, so every town's
+best free attraction is a headland. No amount of per-stop screening fixes that.
+
+**Rule:** when the same category keeps recurring, stop swapping individual stops and
+look at the route's topology. An out-and-back on one corridor will always repeat; a
+loop that returns on a different corridor will not. Fix the shape, and the duplicate
+stops disappear on their own.
+
+### 16.2 Two "best walks" can be duplicates of each other
+
+Tomaree Head (Google 4.9/1,512, Grade 5, 400 steps) and Girraween's The Pyramid
+(AllTrails 4.8/1,118, Grade 4, bare granite) were being weighed as if independent. They
+are the same experience: climb hard, get a big view. Keeping both while cutting days is
+incoherent.
+
+Recognising that turned an apparent loss into a trade: dropping Nelson Bay removed a
+duplicate **and** two days **and** two lighthouses, and made room for the Pyramid, which
+sits on the way home from the north. **Geography decided it** — Nelson Bay to Girraween
+is 7h+, so the two were mutually exclusive regardless of preference.
+
+**Rule:** before defending a stop on its rating, ask what category it occupies and
+whether another stop already fills it. When two candidates are the same category,
+let the route geometry pick the winner, not the score.
+
+### 16.3 Cutting days changes which weekday every later stop falls on
+
+Each length change (9→8→7) re-dated every stop after the cut. That silently invalidated
+the opening-hours work already done, and each pass surfaced new closures:
+Port Macquarie's two best restaurants are closed Sun–Mon (D4 became Sunday);
+Varias is Tue–Sat (D5 became Monday); Glen Innes' only good lunch closes at 14:00
+against a 12:45–13:15 arrival; Harbour Town's late night is Thursday only.
+
+**Rule:** treat a change in trip length as a full invalidation of every weekday-dependent
+fact downstream of it, exactly as §14.2 treats a date shift. Re-run the opening-day
+check as a batch after every re-length — never patch it stop by stop.
+
+### 16.4 A cheap waypoint can rescue a long transfer day
+
+The unavoidable 5h38 transfer (Port Macquarie → Girraween) was made tolerable by two
+stops that cost almost nothing: **Glen Innes' Standing Stones added 5 minutes** to the
+route (it is directly on the Gwydir Highway) and **Raspberry Lookout added ~0** (sealed
+spur off the same highway). Measured, not assumed — the naive assumption was that both
+were detours.
+
+**Rule:** on any transfer leg over ~4 hours, re-measure the route *with candidate
+waypoints inserted* rather than measuring the detour separately. Waypoints that lie on
+the corridor often cost single-digit minutes, and they are the difference between a
+transfer day and a touring day.
