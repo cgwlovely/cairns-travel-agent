@@ -1,6 +1,58 @@
-# Road-trip Agent Method
+# Road-trip Agent Method ｜ 评分驱动的公路旅行规划方法
 
-This file captures the reusable decision logic developed from the NSW 17–25 Sep 2026 road trip. The goal is to make the planner behave like an optimisation agent rather than a town-by-town checklist generator.
+This file captures the reusable decision logic developed while planning two Australian
+road trips. The goal is to make the planner behave like an optimisation agent rather than
+a town-by-town checklist generator.
+
+本文是两趟澳洲自驾（Cairns 2026、NSW 2026）中沉淀下来的可复用决策逻辑。**目标是让规划者
+像一个做优化的 agent，而不是逐镇罗列清单的人。** 正文为英文，下面是中文摘要——读完这一页
+就能知道整套方法在管什么。
+
+---
+
+## 中文摘要 · 一页读懂
+
+### 核心闸门
+
+**Google 评分 ≥ 4.7 且评论数 ≥ 200**，两条同时满足才算「过闸门」。
+
+- **平台分开记，绝不混用**——Google、TripAdvisor、AllTrails 各记各的，不取平均、不互相顶替。
+- **公园的总评分不能代表其中某条步道**；**商家的总评分不能代表其中某个套餐**。
+- **查不到就写「未查到」，绝不编造**（§17.1 是这条规则被自己违反后写下的）。
+
+### 住宿硬闸门
+
+两人独立房间 + **房型层面**写明 ensuite / private bathroom + 非 hostel/dorm + 非共用浴室
++ 免费停车。
+
+**「免费停车」要三项齐全**：免费 / 在住宿场地内 / 专用车位。任何一项对不上就记为**未确认**。
+镇上没有合规房源时，**向外扩 20–40 分钟车程的邻镇，而不是降低标准**。
+
+### 十条最常用的判断
+
+| | 内容 | 出处 |
+|---|---|---|
+| 1 | 先扫两条走廊的体验质量，再决定走向；不要先定路线再填内容 | §1 |
+| 2 | 分清**锚点**（值得为它绕路）和**顺路点**（只在路上才去） | §3 |
+| 3 | 同类体验只留一个——两个「本地最佳步道」很可能是同一件事 | §6 · §16.2 |
+| 4 | **重复是路线形状的属性**：原路折返必然重复，换一条走廊回程就自然消失 | §16.1 |
+| 5 | 改天数 = 后面每一站的星期全变，**营业时间要整批重查**，不能逐站打补丁 | §16.3 |
+| 6 | 长途日先把候选途经点**插进路线一起量**，顺路的常常只要几分钟 | §16.4 |
+| 7 | **查菜价才是真正的营业时间审计**——被选中那家的营业日比被排除的更关键 | §15.1–15.2 |
+| 8 | subagent 交回的营业时间**是主张不是事实**，决定排期的那个数要自己复核 | §15.3 |
+| 9 | 订完房才是开始：**入住/退房窗口要和逐时行程对一遍** | §17.5 |
+| 10 | 同一个环节被否两次，就**别再换方案**——说清结构性约束，把真实菜单摆出来 | §17.10 |
+
+### 最容易栽的六个坑
+
+- **补空格的数字最危险**——为了让表格对齐而填的那一格，正是编造发生的地方（§17.1）。
+- **B&B 的房型行不写浴室 = 信号，不是遗漏**；要去读房源描述（§17.4）。
+- **一处封闭能废掉整个方案**：平台标「暂停营业」只是提示，管理机构的 alert 页才是答案（§17.3）。
+- **在线订位系统没有 ≠ 商家不做**：自租常常只能打电话（§17.7）。
+- **同一个来源自相矛盾时，两条都写出来**，交给电话去解决，别自己挑一个当事实（§17.8）。
+- **逐日建议要用「当天待在哪」的气象站**，不是过夜镇的站（§17.9）。
+
+---
 
 ## 1. Start from experience quality, not a fixed itinerary
 
@@ -346,3 +398,127 @@ were detours.
 waypoints inserted* rather than measuring the detour separately. Waypoints that lie on
 the corridor often cost single-digit minutes, and they are the difference between a
 transfer day and a touring day.
+
+## 17. Lessons from the 2026-09-06/07 re-split, booking and packing pass
+
+The 5h38 transfer day was split three different ways (Grafton → Armidale → Ballina) before
+the user accepted one, six nights were actually booked, and per-day clothing advice was
+added. Ten rules came out of it.
+
+### 17.1 A number you did not read this session is a number you invented
+
+While filling a weather row for Grafton I wrote "23.6 / 8.6°C, 44.4 mm / 5.0 days" — from
+nothing. I caught it before running the script and looked up BOM station 058077
+(Grafton Research Stn): the real September figures are **25.2 / 10.6°C, 42.3 mm / 2.1 days**.
+Every one of the four values was wrong.
+
+The failure mode is specific and worth naming: **fabrication happens in filler fields**, not
+in the fact you set out to research. The Grafton row existed only to keep the table
+symmetrical with the rows above it, and that is exactly why the guard slipped.
+
+**Rule:** any figure that enters a table must be traceable to a source opened in this
+session. The highest-risk cell is the one you are completing to finish a row.
+
+### 17.2 The overnight town is often just a bed — say so in the deliverable
+
+Grafton has **zero** attractions clearing the Google 4.7/200 gate (best: See Park 4.5/546;
+Fig Tree Avenue is 4.7 but on 66 reviews). Armidale likewise (best: NERAM 4.6/342). The
+useful output is the sentence "this night is a bed, do not plan it as a sightseeing day",
+not three 4.4-rated items promoted to fill the page.
+
+**Rule:** when a town has no gate-clearing attraction, state that plainly and say what the
+night is for. Never promote near-misses to make a day look full.
+
+### 17.3 A single closure can void an entire option
+
+Armidale was attractive partly because of Dangars Falls (Google 4.7/230) — the only
+gate-clearing natural attraction in its area. NPWS: the whole Dangars Gorge precinct is
+closed **2025-10-27 → 2027-01-31** for facility upgrades. Google's "temporarily closed"
+label was the hint; the agency alert page was the answer.
+
+**Rule:** before recommending a base town *for its attractions*, open the managing agency's
+alert page for each gate-clearing attraction. A platform's closure label is a prompt to
+check, not a finding.
+
+### 17.4 B&B room rows hide shared bathrooms — read the property description
+
+The Bank House Ulmarra looked like a clear winner: 9.1/444, A$152 including breakfast,
+parking triple verified. Its three bookable rooms each listed 40 m², air-con, TV, WiFi —
+and **no bathroom line at all**. The property description resolved it: four bedrooms, one
+with ensuite, and "**These 3 rooms share bathroom facilities**". The three on offer were
+exactly those three.
+
+**Rule:** in a room row, absence of an ensuite/private-bathroom line is a signal, not an
+omission. For any B&B or guesthouse, read the property description before accepting it
+against §8.
+
+### 17.5 Check-in / check-out windows are scheduling constraints, not formalities
+
+Only after the six bookings were confirmed did laying their windows against the
+hour-by-hour plan surface three conflicts: D2 departing 08:00 against a checkout window
+**opening** 08:30; D7 departing 07:00 against the same; D6 arriving 12:30 against check-in
+**opening** 14:00. Motels have a *closing* check-in time (18:00–20:00 here) and an
+*opening* checkout time — both bite.
+
+**Rule:** once bookings are confirmed, pull every check-in/check-out window and diff it
+against the itinerary's departure and arrival times. An early checkout that has to be
+arranged in advance is a booked action, not an assumption.
+
+### 17.6 Where the corridor turns governs a split, not which town you prefer
+
+Splitting the 5h38 leg, measured both halves for each candidate:
+
+| split at | leg 1 | leg 2 | total |
+|---|---|---|---|
+| Grafton | 2h35 | 3h12 | **5h47** |
+| Armidale | 3h43 | 2h49 | 6h32 |
+| Ballina | 3h44 | 3h18 | **7h02** |
+
+Ballina sits past the point where the route turns inland, so its second leg back-tracks
+southwest. A town one hour further along the first leg cost **1h15 in total**.
+
+**Rule:** when splitting a long leg, measure both halves for every candidate before
+comparing the towns themselves. The best split point is the one nearest the corridor's
+turn; town appeal is a tie-breaker, not the criterion.
+
+### 17.7 Absence from a booking system is not absence of the product
+
+C-Change Adventures' online system (FareHarbor) lists only guided tours and lessons.
+Self-hire — a double kayak at **A$30/hour**, the cheaper and more suitable option for two
+adults — exists and is **phone-only**. The activity was nearly dropped because the online
+system showed nothing that fitted.
+
+**Rule:** when an operator's booking system shows only one product class, check the
+operator's own price page before concluding what they sell.
+
+### 17.8 Report a source's self-contradiction; do not resolve it silently
+
+Town Beach Motor Inn's Booking page states the A$100 damage deposit "will be collected in
+cash" and, in another block, that the property "does not accept cash payment". Both are on
+the same page. Choosing one and presenting it as fact would have been wrong either way.
+
+**Rule:** when a single source contradicts itself on an operational detail, surface both
+statements verbatim and route the question to the phone-call list.
+
+### 17.9 Per-day advice needs per-station data, not the trip average
+
+The weather table carried four stations — all of them overnight towns. Dorrigo, a
+half-day stop, was absent. BOM 059140: **84.1 mm / 7.3 rain days** in September, the
+**wettest station on the whole route** (Coffs Harbour: 59.9 / 4.5). The rain-jacket
+recommendation belongs to that half-day, and nothing in the existing table would have
+surfaced it.
+
+**Rule:** when writing per-day guidance, choose stations by **where each day is spent**,
+not by where the nights are booked.
+
+### 17.10 Repeated rejection of the same day means the constraint is structural
+
+D5 was rejected three times: Grafton (nothing to do), Armidale (its one attraction closed,
+coldest night, four active fires in the corridor), and accepted only at Ballina — at
++1h15 of driving. The common cause was not the towns. A 5h38 leg simply has no midpoint
+that is both near the corridor's turn *and* worth stopping in.
+
+**Rule:** after the same slot is rejected twice, stop proposing replacements. Name the
+structural constraint and put the real menu on the table — accept a bed-only night,
+accept more driving, or do not split at all. This is §16.1 applied to a single day
+instead of the whole route.
